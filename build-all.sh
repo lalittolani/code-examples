@@ -82,10 +82,32 @@ build_maven_module() {
   }
 }
 
-if [[ "$MODULE" == "module5" ]]
+if [[ "$MODULE" == "module6" ]]
 then
   # ADD NEW MODULES HERE
   # (add new modules above the rest so you get quicker feedback if it fails)
+  build_maven_module "spring-boot/feature-flags"
+  build maven_module "aws/springcloudses"
+  build_gradle_module "aws/spring-cloud-caching-redis"
+  build maven_module "spring-boot/spring-boot-camel"
+  build_maven_module "logging/spring-boot"
+  build_maven_module "logging/logback"
+  build_maven_module "logging/log4j"
+
+  echo ""
+  echo "+++"
+  echo "+++ MODULE 6 SUCCESSFUL"
+  echo "+++"
+fi
+
+if [[ "$MODULE" == "module5" ]]
+then
+  build maven_module "aws/aws-dynamodb"
+  build_maven_module "spring-boot/spring-boot-testconfiguration"
+  build_maven_module "aws/springcloudrds"
+  build_maven_module "aws/springcloudsqs"
+  build_maven_module "spring-boot/spring-boot-actuator"
+  build_maven_module "mockito"
   build_maven_module "core-java/service-provider-interface"
   build_gradle_module "spring-boot/hazelcast/hazelcast-embedded-cache"
   build_gradle_module "spring-boot/hazelcast/hazelcast-client-server"
