@@ -11,7 +11,7 @@ build_gradle_module() {
   echo "+++"
   cd $MODULE_PATH && {
     chmod +x gradlew
-    ./gradlew clean build
+    ./gradlew build
     if [ $? -ne 0 ]
     then
       echo ""
@@ -64,7 +64,7 @@ build_maven_module() {
   echo "+++"
   cd $MODULE_PATH && {
     chmod +x mvnw
-    ./mvnw clean package
+    ./mvnw package
     if [ $? -ne 0 ]
     then
       echo ""
@@ -82,10 +82,72 @@ build_maven_module() {
   }
 }
 
-if [[ "$MODULE" == "module5" ]]
+
+if [[ "$MODULE" == "module7" ]]
 then
   # ADD NEW MODULES HERE
   # (add new modules above the rest so you get quicker feedback if it fails)
+  build maven_module "aws/spring-cloud-aws-s3"
+  build maven_module "aws/spring-cloud-sns-sqs-pubsub"
+  build maven_module "apache-http-client"
+  build maven_module "archunit"
+  build maven_module "aws/structured-logging-cw"
+  build_gradle_module "kotlin/coroutines"
+  build_maven_module "core-java/streams/data-streams"
+  build maven_module "aws/kinesis"
+  build maven_module "aws/sqs"
+  build_maven_module "core-java/annotation-processing/introduction-to-annotations"
+
+  echo ""
+  echo "+++"
+  echo "+++ MODULE 7 SUCCESSFUL"
+  echo "+++"
+fi
+
+
+if [[ "$MODULE" == "module6" ]]
+then
+  build maven_module "core-java/records"
+  build_maven_module "spring-boot/spring-boot-app-info"
+  build_maven_module "spring-boot/spring-boot-null-safe-annotations"
+  build maven_module "aws/cdkv2"
+  build_maven_module "immutables"
+  build maven_module "core-java/collectionops"
+  build maven_module "spring-boot/resttemplate"
+  build_maven_module "spring-cloud/tracing"
+  build_maven_module "core-java/versions"
+  build maven_module "java-hashes"
+  build maven_module "http-clients"
+  build maven_module "spring-boot/spring-boot-i18n"
+  build_maven_module "testing/assertJ"
+  build maven_module "spring-boot/spring-boot-scheduler"
+  build maven_module "aws/springcloudwatch"
+  build maven_module "aws/springcloudses"
+  build maven_module "spring-boot/spring-boot-camel"
+  build_maven_module "logging/structured-logging"
+  build_maven_module "spring-boot/zero-downtime"
+  build_maven_module "resilience4j/springboot-resilience4j"
+  build_maven_module "spring-boot/feature-flags"
+  build_gradle_module "aws/spring-cloud-caching-redis"
+  build_maven_module "logging/spring-boot"
+  build_maven_module "logging/logback"
+  build_maven_module "logging/log4j"
+  
+  echo ""
+  echo "+++"
+  echo "+++ MODULE 6 SUCCESSFUL"
+  echo "+++"
+fi
+
+if [[ "$MODULE" == "module5" ]]
+then
+  build_maven_module "spring-boot/beginners-guide"
+  build_maven_module "aws/aws-dynamodb"
+  build_maven_module "spring-boot/spring-boot-testconfiguration"
+  build_maven_module "aws/springcloudrds"
+  build_maven_module "aws/springcloudsqs"
+  build_maven_module "spring-boot/spring-boot-actuator"
+  build_maven_module "mockito"
   build_maven_module "core-java/service-provider-interface"
   build_gradle_module "spring-boot/hazelcast/hazelcast-embedded-cache"
   build_gradle_module "spring-boot/hazelcast/hazelcast-client-server"
@@ -145,9 +207,12 @@ then
   build_maven_module "resilience4j/timelimiter"
   build_maven_module "resilience4j/bulkhead"
   build_maven_module "resilience4j/circuitbreaker"
+  build_maven_module "openfeign/openfeign-client-intro"
   build_gradle_module "spring-data/spring-data-jdbc-converter"
   build_gradle_module "reactive"
   build_gradle_module "junit/assumptions"
+  build_maven_module "junit/junit5/junit5"
+  build_maven_module "junit/junit5/functional-interfaces"
   build_gradle_module "logging"
   build_gradle_module "pact/pact-feign-consumer"
 
